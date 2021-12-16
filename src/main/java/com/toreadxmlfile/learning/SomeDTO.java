@@ -24,11 +24,11 @@ public class SomeDTO {
 //        return purchasedPackage;
 //    }
 
-    public void setEmailAddress(String emailAddress) {
+    public void setEmailAddress(String priority) {
         this.priority = priority;
     }
 
-    public void setName(String name) {
+    public void setName(String loc) {
         this.loc = loc;
     }
 

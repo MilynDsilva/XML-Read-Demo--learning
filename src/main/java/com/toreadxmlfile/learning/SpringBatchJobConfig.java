@@ -27,7 +27,8 @@ public class SpringBatchJobConfig {
     }
 
     @Bean
-    public ItemWriter<SomeDTO> itemWriter() { return (ItemWriter<SomeDTO>) new LoggingItem();}
+    public ItemWriter<SomeDTO> itemWriter() { return (ItemWriter<SomeDTO>) new LoggingItem();
+    }
 
     /**
      * Creates a bean that represents the only step of our batch job.
