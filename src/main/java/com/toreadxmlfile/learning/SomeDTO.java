@@ -1,6 +1,9 @@
 package com.toreadxmlfile.learning;
 
 
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Service;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="url")
