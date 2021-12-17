@@ -9,9 +9,11 @@ import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.xml.builder.StaxEventItemReaderBuilder;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
+@Configuration
 public class SpringBatchJobConfig {
     @Bean
     public ItemReader<SomeDTO> itemReader() {
@@ -19,24 +21,17 @@ public class SpringBatchJobConfig {
         studentMarshaller.setClassesToBeBound(SomeDTO.class);
 
         return new StaxEventItemReaderBuilder<SomeDTO>()
-                .name("Reader")
+                .name("newXmlReader")
                 .resource(new ClassPathResource("data/xmllearndata.xml"))
-                .addFragmentRootElements("urlset")
+                .addFragmentRootElements("url")
                 .unmarshaller(studentMarshaller)
                 .build();
     }
 
     @Bean
-    public ItemWriter<SomeDTO> itemWriter() { return (ItemWriter<SomeDTO>) new LoggingItem();
+    public ItemWriter<SomeDTO> itemWriter() { return new LoggingItem();
     }
 
-    /**
-     * Creates a bean that represents the only step of our batch job.
-     * @param reader
-     * @param writer
-     * @param stepBuilderFactory
-     * @return
-     */
     @Bean
     public Step exampleJobStep(ItemReader<SomeDTO> reader,
                                ItemWriter<SomeDTO> writer,
@@ -48,12 +43,6 @@ public class SpringBatchJobConfig {
                 .build();
     }
 
-    /**
-     * Creates a bean that represents our example batch job.
-     * @param exampleJobStep
-     * @param jobBuilderFactory
-     * @return
-     */
     @Bean
     public Job exampleJob(Step exampleJobStep,
                           JobBuilderFactory jobBuilderFactory) {

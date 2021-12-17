@@ -3,38 +3,35 @@ package com.toreadxmlfile.learning;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name="urlset")
+@XmlRootElement(name="url")
 
 public class SomeDTO {
-    private String priority;
+
     private String loc;
-    //private String purchasedPackage;
+    private String priority;
+
 
     public SomeDTO() {}
 
-    public String getEmailAddress() {
+    public String getLoc() {
+        return loc;
+    }
+    public String getPriority() {
         return priority;
     }
 
-    public String getName() {
-        return loc;
-    }
 
-//   //public String getPurchasedPackage() {
-//        return purchasedPackage;
-//    }
-
-    public void setEmailAddress(String priority) {
-        this.priority = priority;
-    }
-
-    public void setName(String loc) {
+    public void setLoc(String loc) {
         this.loc = loc;
     }
 
-//    public void setPurchasedPackage(String purchasedPackage) {
-//        this.purchasedPackage = purchasedPackage;
-//    }
+
+    public void setPriority(String priority) {
+        this.priority = priority;
+    }
+
+
+
 
     @Override
     public String toString() {

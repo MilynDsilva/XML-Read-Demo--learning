@@ -7,11 +7,12 @@ import org.springframework.batch.item.ItemWriter;
 
 import java.util.List;
 
-public class LoggingItem {
+public class LoggingItem implements ItemWriter<SomeDTO>{
+
     private static final Logger LOGGER = LoggerFactory.getLogger(LoggingItem.class);
 
-    //@Override
+    @Override
     public void write(List<? extends SomeDTO> list) throws Exception {
-        LOGGER.info("Writing students: {}", list);
+        LOGGER.info("Writing data: {}", list);
     }
 }
