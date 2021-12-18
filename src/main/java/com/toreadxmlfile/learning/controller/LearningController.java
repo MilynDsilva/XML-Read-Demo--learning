@@ -1,5 +1,6 @@
 package com.toreadxmlfile.learning.controller;
 
+import com.toreadxmlfile.learning.LearningService.LearningServiceImpl;
 import com.toreadxmlfile.learning.SomeDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -8,15 +9,21 @@ import java.util.List;
 @RestController
 public class LearningController {
 
-//    //@Autowired
-//    //private CourseService courseSerivice;
+    @Autowired
+    private LearningServiceImpl learningService;
 //    //private  priority priority;
-//    @GetMapping("/home")
-//    public String home(List<? extends SomeDTO> list) throws Exception {
-//            return ("Writing data: {}",List<SomeDTO>);
-//        }
-//
-//    }
+    @GetMapping("/home")
+    public String home() {
+        return ("home");
+    }
+
+    @GetMapping("/some")
+    public List<SomeDTO> getDetails() {
+        return this.learningService.getDetails();
+    }
+}
+
+
 
     //get courses
 //    @GetMapping("/courses")
@@ -39,4 +46,4 @@ public class LearningController {
 //        return this.courseSerivice.addCourse(course);
 //    }
 //
-}
+

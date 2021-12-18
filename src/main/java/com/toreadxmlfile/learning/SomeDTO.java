@@ -13,8 +13,14 @@ public class SomeDTO {
     private String loc;
     private String priority;
 
-
-    public SomeDTO() {}
+    public SomeDTO(String loc, String priority) {
+        super();
+        this.priority   = priority;
+        this.loc = loc;
+    }
+    public SomeDTO() {
+        super();
+    }
 
     public String getLoc() {
         return loc;
