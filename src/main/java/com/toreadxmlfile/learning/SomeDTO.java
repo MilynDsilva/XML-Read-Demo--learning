@@ -15,7 +15,7 @@ public class SomeDTO {
 
     public SomeDTO(String loc, String priority) {
         super();
-        this.priority   = priority;
+        this.priority = priority;
         this.loc = loc;
     }
     public SomeDTO() {

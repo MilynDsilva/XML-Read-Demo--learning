@@ -13,10 +13,12 @@ public class LearningServiceImpl implements LearningIntServicer {
 
 
     public LearningServiceImpl(){
-        list= new ArrayList<>();
+        //list= new ArrayList<>();
+        list=  new ArrayList<>();
+
         //list.add(1,"jvc","Test");
-        list.add(new SomeDTO("a",""));
-       // list.add(new SomeDTO(1,"jvc"));
+        //list.add(new SomeDTO("a",""));
+        // list.add(new SomeDTO(1,"jvc"));
 
 
     }
